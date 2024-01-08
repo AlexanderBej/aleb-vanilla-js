@@ -1,0 +1,39 @@
+{
+    "home": {
+        "name": "my name is",
+        "alias": "but I'm also known as",
+        "work": "and I'm a front-end developer, UX/UI designer and graphic designer",
+
+        "links": {
+            "about": "about",
+            "experience": "experience",
+            "contact": "contact"
+        },
+        "copyright": "All rights reserved"
+    },
+    
+    "about": "I'm a passionate <strong>web developer</strong> and <strong>UX/UI designer</strong> from Romania (currently living in Spain), with a focus on creating modern and sleek user experiences. My goal is to bring ideas to life through code, ensuring a seamless and engaging online presence. With a keen eye for design and a love for clean code, I strive to deliver web solutions that not only meet but exceed expectations.",
+
+    "experience": {
+        "rindus": {
+            "title": "front-end developer",
+            "description": "In my capacity as a front-end developer, I played an integral role in a dynamic team focused on developing innovative solutions. Notably, I contributed significantly to an internal tool for a leading German advertisement space selling agency, leveraging the latest versions of Angular. Our tool, vital for agents, employed Google Maps for visualizing advertisement spaces and streamlining information gathering, cost assessments, and sales processes to clients. My responsibilities extended beyond frontend development; I also took a lead role in enhancing the checkout method, optimizing the user experience and ensuring seamless transactions for our clients. This multifaceted role allowed me to showcase adaptability, technical proficiency, and a commitment to delivering impactful solutions."
+        },
+        "conti_one": {
+            "title": "full-stack developer",
+            "description": "In my role as a full-stack developer, I spearheaded the development of four internal tools, showcasing expertise in both frontend and backend technologies. On the frontend, I exclusively worked with Angular (versions 8 to 11), while the backend was implemented using Spring Boot 2, .NET Core, and .NET Framework. I played a central role in designing each application, creating logos, and developing related illustrations. Leading one of the projects, I took charge of gathering stakeholder requirements, creating tasks, and efficiently distributing responsibilities among team members, fostering collaboration and ensuring successful project delivery."
+        },
+        "conti_two": {
+            "title": "software developer",
+            "description": "As a software developer, I played a pivotal role in crafting an internal testing tool for embedded code on microprocessors used in car components. The Eclipse plugin, primarily built with Java and complemented by C++ and C#, facilitated Unit tests, functional tool tests, and hardware tests, predominantly leveraging CANoe. My responsibilities extended to writing C tests for code evaluation and creating HTML pages for signal visualization. This experience honed my skills in software development, testing methodologies, and collaboration within a fast-paced environment."
+        },
+        "resume": {
+            "static_text": "See full resume",
+            "link": "here"
+        }
+    },
+
+    "contact": {
+        "social": "social medias"
+    }
+}

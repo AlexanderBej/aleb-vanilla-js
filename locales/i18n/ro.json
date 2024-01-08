@@ -1,0 +1,39 @@
+{
+    "home": {
+        "name": "numele meu e",
+        "alias": "dar sunt cunoscut și ca",
+        "work": "și sunt dezvoltator front-end, designer UX/UI și designer grafic",
+
+        "links": {
+            "about": "despre",
+            "experience": "experiență",
+            "contact": "contact"
+        },
+        "copyright": "Toate drepturile rezervate"
+    },
+    
+    "about": "Sunt un <strong>dezvoltator web</strong> și <strong>designer UX/UI</strong> pasionat din România (locuind în prezent în Spania), cu accent pe crearea de experiențe moderne și elegante pentru utilizatori. Scopul meu este să dau viață ideilor prin cod, asigurând o prezență online perfectă și captivantă. Cu un ochi aprofundat pentru design și o dragoste pentru codul curat, mă străduiesc să livrez soluții web care nu numai că îndeplinesc, dar depășesc așteptările.",
+
+    "experience": {
+        "rindus": {
+            "title": "dezvoltator front-end",
+            "description": "În calitatea mea de dezvoltator front-end, am jucat un rol esențial într-o echipă dinamică concentrată pe dezvoltarea de soluții inovatoare. În special, am contribuit în mod semnificativ la un instrument intern pentru o agenție germană de vânzare de spații publicitare de top, utilizând cele mai recente versiuni de Angular. Instrumentul nostru, vital pentru agenți, a folosit Google Maps pentru a vizualiza spațiile publicitare și pentru a eficientiza colectarea de informații, evaluările costurilor și procesele de vânzare către clienți. Responsabilitățile mele s-au extins dincolo de dezvoltarea front-end; De asemenea, am avut un rol principal în îmbunătățirea metodei de plată, optimizarea experienței utilizatorului și asigurarea tranzacțiilor fără întreruperi pentru clienții noștri. Acest rol cu mai multe fațete mi-a permis să prezint adaptabilitatea, competența tehnică și angajamentul de a oferi soluții de impact."
+        },
+        "conti_one": {
+            "title": "dezvoltator full-stack",
+            "description": "În rolul meu de dezvoltator full-stack, am condus dezvoltarea a patru instrumente interne, prezentând expertiză atât în tehnologiile frontend, cât și în cele de backend. Pe frontend, am lucrat exclusiv cu Angular (versiunile 8 până la 11), în timp ce backend-ul a fost implementat folosind Spring Boot 2, .NET Core și .NET Framework. Am jucat un rol central în proiectarea fiecărei aplicații, crearea de logo-uri și dezvoltarea ilustrațiilor aferente. Conducând unul dintre proiecte, m-am ocupat de colectarea cerințelor părților interesate, crearea sarcinilor și distribuirea eficientă a responsabilităților între membrii echipei, promovând colaborarea și asigurând livrarea cu succes a proiectelor."
+        },
+        "conti_two": {
+            "title": "dezvoltator software",
+            "description": "În calitate de dezvoltator de software, am jucat un rol esențial în crearea unui instrument intern de testare pentru codul încorporat pe microprocesoarele utilizate în componentele auto. Pluginul Eclipse, construit în principal cu Java și completat cu C++ și C#, a facilitat teste unitare, teste de instrumente funcționale și teste hardware, utilizând în principal CANoe. Responsabilitățile mele s-au extins la scrierea de teste C pentru evaluarea codului și crearea de pagini HTML pentru vizualizarea semnalului. Această experiență mi-a perfecționat abilitățile în dezvoltarea de software, metodologii de testare și colaborare într-un mediu cu ritm rapid."
+        },
+        "resume": {
+            "static_text": "Vezi CV-ul în întregime",
+            "link": "aici"
+        }
+    },
+
+    "contact": {
+        "social": "rețele de socializare"
+    }
+}

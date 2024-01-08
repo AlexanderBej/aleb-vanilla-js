@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta name="theme-color" content="#ffffff" />
+    <title>Aleb</title>
+    <link rel="stylesheet" type="text/css" href="css/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Hind:wght@300;400;500;600;700&family=Marhey:wght@300;400;500;600;700&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="ripple-background">
+      <div class="circle xlarge"></div>
+      <div class="circle large"></div>
+      <div class="circle medium"></div>
+      <div class="circle small"></div>
+    </div>
+    <section class="border">
+      <header>
+        <a href="index.html">
+          <img
+            src="locales/images/aleb_logo_2024_light_blue.svg"
+            alt="aleb logo"
+            title="Alexandru Bej"
+            id="logo"
+            class="logo"
+          />
+        </a>
+        <div class="lang-toggle-container">
+          <button type="button" class="language-btn" id="language-btn" onclick="toggleLanguage()">
+          </button>
+        </div>
+      </header>
+      <div class="main">
+        <div class="intro">
+          <h1 id="text">hello</h1>
+          <h1
+            data-aos="fade-left"
+            data-aos-delay="1000"
+            data-aos-duration="1000"
+          >
+            <span data-i18n="home.name">my name is </span>
+            <span class="name">Alexandru Bej</span>,
+          </h1>
+          <h1
+            data-aos="fade-left"
+            data-aos-delay="2000"
+            data-aos-duration="1000"
+          >
+            <span data-i18n="home.alias">but I'm also known as </span>
+            <span class="name">aleb</span>,
+          </h1>
+          <h2
+            data-aos="fade-left"
+            data-aos-delay="3000"
+            data-aos-duration="1000"
+            data-i18n="home.work"
+          >
+            and I'm a front-end developer, UX/UI designer and graphic designer
+          </h2>
+        </div>
+        <div class="nav-tabs">
+          <a class="nav-link" href="html/about.html">
+            001.
+            <span
+              id="nav-about"
+              class="nav-title"
+              data-i18n="home.links.about"
+              data-content=""
+              ></span
+            >
+          </a>
+          <a class="nav-link" href="html/experience.html">
+            002.
+            <span
+              id="nav-experience"
+              class="nav-title"
+              data-i18n="home.links.experience"
+              data-content=""
+              ></span
+            >
+          </a>
+
+          <a class="nav-link" href="html/contact.html">
+            003.
+            <span id="nav-contact" class="nav-title">contact</span>
+          </a>
+        </div>
+      </div>
+
+      <footer>
+        <span class="copyright"
+          >&copy; 2024 Alexandru Bej.
+          <span data-i18n="home.copyright">All rights reserved.</span></span
+        >
+      </footer>
+    </section>
+
+    <!-- <script src="./bundle.js"></script> -->
+    <script src="./index.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+  </body>
+</html>
