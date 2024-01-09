@@ -6,7 +6,7 @@ const availableLocales = ['en', 'ro'];
 // Default locale.
 const defaultLanguageIndex = 0;
 const defaultLanguage = 'en';
-let languageButtonLabel = 'ro';
+let languageButtonLabel = 'en';
 
 // Manually detect users' language, strip languages such as `en-GB` to just `en`.
 let language = (window.navigator.userLanguage || window.navigator.language).substr(0, 2);
@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Apply the language to your website based on the preferredLanguage variable
     // You can have a separate function to handle the actual language switching logic
     setLanguage(preferredLanguage);
-    setLanguageButtonLabel(preferredLanguage);
+    document.getElementById('language-btn').innerHTML = languageButtonLabel;
 });
 
 function getStorageLanguage() {
@@ -36,7 +36,6 @@ function setStorageLanguage(language) {
 
 
 async function setLanguage(lang) {
-    console.log("SET LANGUAGE", lang)
     setStorageLanguage(lang);
     // Get all page elements to be translated.
     const elements = document.querySelectorAll('[data-i18n]');
@@ -121,17 +120,5 @@ function toggleLanguage() {
 
     // Set the new locale as the specified pageLanguage
     setLanguage(availableLocales[nextIndex]);
-    setLanguageButtonLabel(availableLocales[nextIndex]);
-}
-
-function setLanguageButtonLabel(currentLanguage) {
-    const currentIndex = availableLocales.indexOf(currentLanguage);
-
-    // Calculate the index of the next locale
-    const nextIndex = (currentIndex + 1) % availableLocales.length;
-
-
-    languageButtonLabel = availableLocales[nextIndex];
-
-    document.getElementById('language-btn').innerHTML = languageButtonLabel;
+    document.getElementById('language-btn').innerHTML = availableLocales[nextIndex];
 }
