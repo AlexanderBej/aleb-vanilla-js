@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Apply the language to your website based on the preferredLanguage variable
     // You can have a separate function to handle the actual language switching logic
     setLanguage(preferredLanguage);
-    document.getElementById('language-btn').innerHTML = languageButtonLabel;
+    document.getElementById('language-btn').innerHTML = preferredLanguage;
 });
 
 function getStorageLanguage() {
