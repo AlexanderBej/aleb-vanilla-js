@@ -138,7 +138,7 @@ theme_toggler.addEventListener('click', function () {
     }
 });
 
-animated.addEventListener("animationend", () => {
+theme_toggler.addEventListener("animationend", () => {
     theme_toggler.classList.remove('transition-time');
   });
 
