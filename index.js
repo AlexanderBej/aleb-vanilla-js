@@ -2,6 +2,7 @@ var text = document.getElementById('text');
 var newDom = '';
 var animationDelay = 200;
 const availableLocales = ['en', 'ro'];
+let theme_toggler = document.querySelector('#theme-toggler');
 
 // Default locale.
 const defaultLanguageIndex = 0;
@@ -18,6 +19,9 @@ if (availableLocales.includes(language)) {
 }
 
 document.addEventListener('DOMContentLoaded', function () {
+    retrieveTheme();
+    setCheckbox();
+
     const preferredLanguage = getStorageLanguage();
 
     // Apply the language to your website based on the preferredLanguage variable
@@ -107,9 +111,9 @@ if (text) {
     }
 }
 
-function setDelay(number) {
-    document.querySelector('.skill').setAttribute('data-aos-delay', number)
-}
+// function setDelay(number) {
+//     document.querySelector('.skill').setAttribute('data-aos-delay', number)
+// }
 
 
 function toggleLanguage() {
@@ -121,4 +125,33 @@ function toggleLanguage() {
     // Set the new locale as the specified pageLanguage
     setLanguage(availableLocales[nextIndex]);
     document.getElementById('language-btn').innerHTML = availableLocales[nextIndex];
+}
+
+
+theme_toggler.addEventListener('click', function () {
+    document.body.classList.toggle('light_mode');
+    if (document.body.classList.contains('light_mode')) {
+        localStorage.setItem('website_theme', 'light_mode');
+    } else {
+        localStorage.setItem('website_theme', 'default');
+    }
+});
+
+function retrieveTheme() {
+    var theme = localStorage.getItem('website_theme');
+    if (theme != null) {
+        document.body.classList.remove('default', 'light_mode'); 
+        document.body.classList.add(theme);
+    }
+}
+
+function setCheckbox() {
+    var theme = localStorage.getItem('website_theme');
+    if (theme != null) {
+        if (document.body.classList.contains('light_mode')) {
+            document.getElementById("theme-toggler").checked = true;
+        } else {
+            document.getElementById("theme-toggler").checked = false;
+        }
+    }
 }
