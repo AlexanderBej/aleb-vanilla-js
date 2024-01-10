@@ -129,6 +129,7 @@ function toggleLanguage() {
 
 
 theme_toggler.addEventListener('click', function () {
+    theme_toggler.classList.add('transition-time');
     document.body.classList.toggle('light_mode');
     if (document.body.classList.contains('light_mode')) {
         localStorage.setItem('website_theme', 'light_mode');
@@ -136,6 +137,10 @@ theme_toggler.addEventListener('click', function () {
         localStorage.setItem('website_theme', 'default');
     }
 });
+
+animated.addEventListener("animationend", () => {
+    theme_toggler.classList.remove('transition-time');
+  });
 
 function retrieveTheme() {
     var theme = localStorage.getItem('website_theme');
