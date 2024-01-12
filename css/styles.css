@@ -23,7 +23,6 @@ body {
   background-color: var(--primary-color);
   color: var(--secondary-color);
   font-family: "Montserrat", sans-serif;
-  /* transition: all 2.5s ease; */
 }
 
 a {
@@ -107,12 +106,11 @@ h3 {
 .toggle-container {
   margin-right: 40px;
   position: relative;
+  display: inline-flex;
+  align-items: center;
 }
 
 .language-btn {
-  position: absolute;
-  top: 50%;
-  transform: translate(0, -50%);
   padding: 10px;
   border-radius: 50%;
   border: 2px solid var(--secondary-color);
@@ -216,8 +214,7 @@ h3 {
   position: relative;
   outline: none;
   cursor: pointer;
-  /* transition: 0.5s; */
-  margin: 25px 0 0 100px;
+  margin: 0 30px;
 }
 
 .checkbox::before {
@@ -230,7 +227,6 @@ h3 {
   background: linear-gradient(to bottom, #00142f, #010914);
   border-radius: 50px;
   transform: scale(0.9);
-  /* transition: 0.5s; */
   box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5),
     inset 4px 4px rgba(255, 255, 255, 0.2),
     inset -4px 4px rgba(255, 255, 255, 0.2);
@@ -257,6 +253,79 @@ h3 {
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1),
     inset 4px 4px rgba(255, 255, 255, 1), inset -4px 4px rgba(255, 255, 255, 1);
   background: linear-gradient(to bottom, #8ca3c3, #95adcf);
+}
+
+/* dropdown menu button */
+
+.dropdown-btn {
+  padding: 0;
+  border: none;
+  width: 50px;
+  height: 40px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.dropdown-btn div {
+  width: 45px;
+  height: 5px;
+  border-radius: 5px;
+  border: 2px solid var(--secondary-color);
+  transition: all 0.5s ease;
+}
+
+.dropdown-btn:hover div,
+.dropdown-btn:focus div {
+  background-color: var(--secondary-color);
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-content {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s, opacity 0.5s ease-in-out;
+  position: absolute;
+  background-color: transparent;
+  min-width: 135px;
+  overflow: auto;
+  right: 0;
+}
+
+.dropdown-content a {
+  padding: 8px 16px;
+  display: block;
+  margin: 10px 0;
+  border: 2px solid var(--secondary-color);
+  border-radius: 25px;
+  transition: all 0.5s ease;
+  background-color: var(--primary-color);
+}
+
+.dropdown-content a:hover {
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+}
+
+.show {
+  visibility: visible;
+  opacity: 1;
+}
+
+.change .bar1 {
+  transform: translate(0, 15px) rotate(-45deg);
+}
+
+.change .bar2 {
+  opacity: 0;
+}
+
+.change .bar3 {
+  transform: translate(0, -15px) rotate(45deg);
 }
 
 /* home classes */
@@ -628,6 +697,24 @@ h3 {
     left: 40px;
   }
 
+  .dropdown-btn {
+    height: 40px;
+    width: 35px;
+  }
+
+  .dropdown-btn div {
+    width: 35px;
+    height: 4px;
+  }
+
+  .change .bar1 {
+    transform: translate(0, 14px) rotate(-45deg);
+  }
+
+  .change .bar3 {
+    transform: translate(0, -17px) rotate(45deg);
+  }
+
   .intro {
     width: 90%;
   }
@@ -677,8 +764,6 @@ h3 {
     height: 20px;
     width: 40px;
     border-radius: 20px;
-    margin-left: 55px;
-    margin-top: 33px;
   }
 
   .checkbox::before {
@@ -749,6 +834,16 @@ h3 {
 }
 
 @media screen and (max-width: 560px) {
+  .dropdown-content {
+    max-width: 115px;
+  }
+
+  .dropdown-content a {
+    padding: 6px 12px;
+    margin: 8px 0;
+    font-size: 12px;
+  }
+  
   .work-history {
     flex-direction: column;
   }
@@ -769,6 +864,29 @@ h3 {
     width: 20px;
     height: 20px;
     font-size: 9px;
+  }
+
+  .dropdown-btn {
+    height: 20px;
+    width: 20px;
+  }
+
+  .dropdown-btn div {
+    width: 20px;
+    height: 2px;
+    border-width: 1px;
+  }
+
+  .change .bar1 {
+    transform: translate(0, 6px) rotate(-45deg);
+  }
+
+  .change .bar3 {
+    transform: translate(0, -10px) rotate(45deg);
+  }
+
+  .checkbox {
+    margin: 0 15px;
   }
 
   .experience-wrapper {

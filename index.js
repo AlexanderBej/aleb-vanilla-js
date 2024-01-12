@@ -111,10 +111,6 @@ if (text) {
     }
 }
 
-// function setDelay(number) {
-//     document.querySelector('.skill').setAttribute('data-aos-delay', number)
-// }
-
 
 function toggleLanguage() {
     const currentIndex = availableLocales.indexOf(pageLanguage);
@@ -140,12 +136,12 @@ theme_toggler.addEventListener('click', function () {
 
 theme_toggler.addEventListener("animationend", () => {
     theme_toggler.classList.remove('transition-time');
-  });
+});
 
 function retrieveTheme() {
     var theme = localStorage.getItem('website_theme');
     if (theme != null) {
-        document.body.classList.remove('default', 'light_mode'); 
+        document.body.classList.remove('default', 'light_mode');
         document.body.classList.add(theme);
     }
 }
@@ -160,3 +156,27 @@ function setCheckbox() {
         }
     }
 }
+
+/* toggleDropdown toggles between adding and removing the show class, which is used to hide and show the dropdown content */
+function toggleDropdown() {
+    document.getElementById("dropdown-box").classList.toggle("show");
+    document.getElementById("dropdown-btn").classList.toggle("change");
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function (event) {
+
+    if (!event.target.matches('.dropdown-btn') && !event.target.matches('.bar')) {
+
+        var dropdownBox = document.getElementById("dropdown-box");
+        var dropdownButton = document.getElementById("dropdown-btn");
+
+        if (dropdownBox.classList.contains('show')) {
+            dropdownBox.classList.remove('show');
+        }
+
+        if (dropdownButton.classList.contains('change')) {
+            dropdownButton.classList.remove('change');
+        }
+    }
+};
