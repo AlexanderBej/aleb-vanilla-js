@@ -73,7 +73,6 @@ async function setLanguage(lang) {
             htmlElement.setAttribute('lang', pageLanguage);
 
             pageLanguage = lang;
-            // document.getElementById('nav-about').setAttribute('data-content', (lang == 'en' ? "about" : "despre"));
 
             setDataContent(lang);
         })
@@ -86,17 +85,26 @@ async function setLanguage(lang) {
 
 
 function setDataContent(language) {
-    var aboutLink = document.getElementById('nav-about');
-    var experienceLink = document.getElementById('nav-experience');
-
-    if (aboutLink) {
-        aboutLink.setAttribute('data-content', (language == 'en' ? "about" : "despre"));
-    }
-
-    if (experienceLink) {
-        experienceLink.setAttribute('data-content', (language == 'en' ? "experience" : "experiență"));
-    }
-}
+    const elementIds = ['nav-about', 'nav-experience', 'nav-portfolio'];
+  
+    elementIds.forEach((elementId) => {
+      const linkElement = document.getElementById(elementId);
+  
+      if (linkElement) {
+        switch (elementId) {
+          case 'nav-about':
+            linkElement.setAttribute('data-content', language === 'en' ? 'about' : 'despre');
+            break;
+          case 'nav-experience':
+            linkElement.setAttribute('data-content', language === 'en' ? 'experience' : 'experiență');
+            break;
+          case 'nav-portfolio':
+            linkElement.setAttribute('data-content', language === 'en' ? 'portfolio' : 'portofoliu');
+            break;
+        }
+      }
+    });
+  }
 
 if (text) {
     for (let i = 0; i < text.innerText.length; i++) {

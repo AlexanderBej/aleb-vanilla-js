@@ -101,9 +101,13 @@
             id="language-btn"
             onclick="toggleLanguage()"
           ></button>
-          <input type="checkbox" class="checkbox" id="theme-toggler">
+          <input type="checkbox" class="checkbox" id="theme-toggler" />
           <div class="dropdown">
-            <div onclick="toggleDropdown()" id="dropdown-btn" class="dropdown-btn">
+            <div
+              onclick="toggleDropdown()"
+              id="dropdown-btn"
+              class="dropdown-btn"
+            >
               <div class="bar bar1"></div>
               <div class="bar bar2"></div>
               <div class="bar bar3"></div>
@@ -111,58 +115,49 @@
             <div id="dropdown-box" class="dropdown-content">
               <a href="index.html" data-i18n="home.links.home">home</a>
               <a href="about.html" data-i18n="home.links.about">about</a>
-              <a href="experience.html" data-i18n="home.links.experience">experience</a>
-              <a href="portfolio.html" data-i18n="home.links.portfolio">portfolio</a>
+              <a href="experience.html" data-i18n="home.links.experience"
+                >experience</a
+              >
+              <a href="contact.html">contact</a>
             </div>
           </div>
         </div>
       </header>
       <div class="main main-inline">
         <div class="page-title">
-          <h1 data-aos="fade-down" class="vertical-lr">contact</h1>
+          <h1
+            data-aos="fade-down"
+            class="vertical-lr"
+            data-i18n="home.links.portfolio"
+          >
+            portfolio
+          </h1>
         </div>
 
-        <div class="contact-container">
-          <div class="mail-contact">
-            <h3 class="contact-title">e-mail</h3>
-            <a
-              class="contact-option"
-              id="email"
-              href="mailto: alexbej07@gmail.com"
-              >alexbej07@gmail.com</a
-            >
-          </div>
-          <div class="social-contact">
-            <h3 class="contact-title" data-i18n="contact.social">
-              social medias
-            </h3>
-            <div class="contact-options">
-              <a
-                class="contact-option"
-                id="instagram"
-                href="https://www.instagram.com/alebDoesDesign/"
-                target="_blank"
-                title="Instagram"
-                >instagram</a
-              >
-              <a
-                class="contact-option"
-                id="linkedin"
-                href="https://www.linkedin.com/in/alexandru-bej-203a72ab/"
-                target="_blank"
-                title="LinkedIn"
-                >linkedIn</a
-              >
-              <a
-                class="contact-option"
-                id="dribbble"
-                href="https://dribbble.com/alebX"
-                target="_blank"
-                title="Dribbble"
-                >dribbble</a
-              >
-            </div>
-          </div>
+        <div class="portfolio-container">
+          <section class="portfolio-list">
+            <ul>
+              <li>
+                <a href="#aleb-website">
+                  001. <span class="nav-title">aleb</span>
+                </a>
+              </li>
+              <li>
+                <a href="#suna-dubios">
+                  002.
+                  <span class="nav-title"
+                    >'Suna dubios?' <span>board game</span>
+                  </span>
+                </a>
+              </li>
+            </ul>
+          </section>
+          <section class="aleb-website-container">
+            <h1 id="aleb-website">aleb</h1>
+          </section>
+          <section class="suna-dubios-container">
+            <h1 id="suna-dubios">Suna dubios?</h1>
+          </section>
         </div>
       </div>
     </section>

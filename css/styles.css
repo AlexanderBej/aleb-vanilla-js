@@ -351,11 +351,7 @@ h3 {
   color: unset;
 }
 
-#nav-about::before {
-  content: attr(data-content);
-}
-
-#nav-experience::before {
+#nav-about::before, #nav-experience::before, #nav-portfolio::before {
   content: attr(data-content);
 }
 
