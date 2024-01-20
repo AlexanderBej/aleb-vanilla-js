@@ -8,7 +8,7 @@
             "home": "home",
             "about": "about",
             "experience": "experience",
-            "portfolio": "portfolio",
+            "projects": "projects",
             "contact": "contact"
         },
         "copyright": "All rights reserved"
@@ -32,6 +32,25 @@
         "resume": {
             "static_text": "See full resume",
             "link": "here"
+        }
+    },
+
+    "projects": {
+        "aleb": {
+            "description": "\"aleb\" is not just a website; it's a digital representation of my online identity. Crafted with a visually appealing design created in Adobe Illustrator, the site serves as a virtual hub for showcasing my professional journey. Using HTML, CSS, and Vanilla JS, I've meticulously built a platform that highlights my experiences, projects, and contact details. The design, captured in vibrant images, reflects both creativity and functionality, offering visitors an immersive experience as they navigate through my online presence.",
+            "date": "January 2024"
+        },
+        "suna_dubios": {
+            "description": "Welcome to the world of \"Suna dubios?\" - a captivating trivia board game designed to challenge players' wit and ability to bluff. From the intricately crafted trivia cards to the unique user cards and the stylish game box, every element of this game is a testament to my passion for design and board games. The trivia questions, carefully curated to be the weirdest and funniest snippets of knowledge, add a delightful twist to the gaming experience. Players must navigate through a sea of facts, some accompanied by intriguing explanations, adding an extra layer of enjoyment. Stay tuned for expansions and bonus cards, promising even more excitement in the near future.",
+            "date": "November 2023",
+            "theme": "Board game design",
+            "chips": {
+                "trivia_cards": "Unique trivia cards design",
+                "user_cards": "Engaging user cards",
+                "box": "Creative game box design",
+                "facts": "Fun facts and explanations on trivia cards",
+                "expansion": "Planned expansions and bonus cards"
+            }
         }
     },
 

@@ -8,7 +8,7 @@
             "home": "acasă",
             "about": "despre",
             "experience": "experiență",
-            "portfolio": "portofoliu",
+            "projects": "proiecte",
             "contact": "contact"
         },
         "copyright": "Toate drepturile rezervate"
@@ -32,6 +32,25 @@
         "resume": {
             "static_text": "Vezi CV-ul în întregime",
             "link": "aici"
+        }
+    },
+
+    "projects": {
+        "aleb": {
+            "description": "„aleb” nu este doar un site web; este o reprezentare digitală a identității mele online. Creat cu un design atrăgător din punct de vedere vizual creat în Adobe Illustrator, site-ul servește ca un hub virtual pentru a-mi prezenta călătoria profesională. Folosind HTML, CSS și Vanilla JS, am construit cu meticulozitate o platformă care îmi evidențiază experiențele, proiectele și detaliile de contact. Designul, surprins în imagini vibrante, reflectă atât creativitatea, cât și funcționalitatea, oferind vizitatorilor o experiență captivantă în timp ce navighează prin prezența mea online.",
+            "date": "Ianuarie 2024"
+        },
+        "suna_dubios": {
+            "description": "Bine ați venit în lumea „Suna dubios?” - un joc de societate captivant, conceput pentru a provoca inteligența și capacitatea jucătorilor de a blufa. De la cărțile de trivia elaborate complex la cardurile de utilizator unice și cutia de joc elegantă, fiecare element al acestui joc este o dovadă a pasiunii mele pentru design și pentru jocuri de societate. Întrebările trivia, îngrijite cu grijă pentru a fi cele mai ciudate și amuzante fragmente de cunoștințe, adaugă o întorsătură încântătoare experienței de joc. Jucătorii trebuie să navigheze printr-o mare de fapte, unele însoțite de explicații interesante, adăugând un strat suplimentar de plăcere. Rămâneți pe fază pentru expansiuni și carduri bonus, promițând și mai multă emoție în viitorul apropiat.",
+            "date": "Noiembrie 2023",
+            "theme": "Design de joc de societate",
+            "chips": {
+                "trivia_cards": "Design unic de cărți de trivia",
+                "user_cards": "Carduri de utilizator implicate",
+                "box": "Design creativ cutie de joc",
+                "facts": "Fapte amuzante și explicații pe carduri trivia",
+                "expansion": "Expansiuni planificate și carduri bonus"
+            }
         }
     },
 

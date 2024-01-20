@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
     <link rel="manifest" href="/site.webmanifest" />
@@ -95,11 +95,19 @@
           </svg>
         </a>
         <div class="toggle-container">
-          <button type="button" class="language-btn" id="language-btn" onclick="toggleLanguage()">
-          </button>
-          <input type="checkbox" class="checkbox" id="theme-toggler">
+          <button
+            type="button"
+            class="aleb-btn"
+            id="language-btn"
+            onclick="toggleLanguage()"
+          ></button>
+          <input type="checkbox" class="checkbox" id="theme-toggler" />
           <div class="dropdown">
-            <div onclick="toggleDropdown()" id="dropdown-btn" class="dropdown-btn">
+            <div
+              onclick="toggleDropdown()"
+              id="dropdown-btn"
+              class="dropdown-btn"
+            >
               <div class="bar bar1"></div>
               <div class="bar bar2"></div>
               <div class="bar bar3"></div>
@@ -107,7 +115,9 @@
             <div id="dropdown-box" class="dropdown-content">
               <a href="index.html" data-i18n="home.links.home">home</a>
               <a href="about.html" data-i18n="home.links.about">about</a>
-              <a href="portfolio.html" data-i18n="home.links.portfolio">portfolio</a>
+              <a href="projects.html" data-i18n="home.links.projects"
+                >projects</a
+              >
               <a href="contact.html" data-i18n="home.links.contact">contact</a>
             </div>
           </div>
@@ -253,7 +263,10 @@
             </div>
             <div class="work-history resume">
               <p class="resume-text">
-                <span class="resume-static-text" data-i18n="experience.resume.static_text">
+                <span
+                  class="resume-static-text"
+                  data-i18n="experience.resume.static_text"
+                >
                   See full resume
                 </span>
                 <a

@@ -21,13 +21,15 @@ if (availableLocales.includes(language)) {
 document.addEventListener('DOMContentLoaded', function () {
     retrieveTheme();
     setCheckbox();
-
     const preferredLanguage = getStorageLanguage();
 
     // Apply the language to your website based on the preferredLanguage variable
     // You can have a separate function to handle the actual language switching logic
     setLanguage(preferredLanguage);
-    document.getElementById('language-btn').innerHTML = preferredLanguage;
+    const languageButton = document.getElementById('language-btn');
+    if (languageButton) {
+        languageButton.innerHTML = preferredLanguage;
+    }
 });
 
 function getStorageLanguage() {
@@ -85,26 +87,26 @@ async function setLanguage(lang) {
 
 
 function setDataContent(language) {
-    const elementIds = ['nav-about', 'nav-experience', 'nav-portfolio'];
-  
+    const elementIds = ['nav-about', 'nav-experience', 'nav-projects'];
+
     elementIds.forEach((elementId) => {
-      const linkElement = document.getElementById(elementId);
-  
-      if (linkElement) {
-        switch (elementId) {
-          case 'nav-about':
-            linkElement.setAttribute('data-content', language === 'en' ? 'about' : 'despre');
-            break;
-          case 'nav-experience':
-            linkElement.setAttribute('data-content', language === 'en' ? 'experience' : 'experiență');
-            break;
-          case 'nav-portfolio':
-            linkElement.setAttribute('data-content', language === 'en' ? 'portfolio' : 'portofoliu');
-            break;
+        const linkElement = document.getElementById(elementId);
+
+        if (linkElement) {
+            switch (elementId) {
+                case 'nav-about':
+                    linkElement.setAttribute('data-content', language === 'en' ? 'about' : 'despre');
+                    break;
+                case 'nav-experience':
+                    linkElement.setAttribute('data-content', language === 'en' ? 'experience' : 'experiență');
+                    break;
+                case 'nav-projects':
+                    linkElement.setAttribute('data-content', language === 'en' ? 'projects' : 'proiecte');
+                    break;
+            }
         }
-      }
     });
-  }
+}
 
 if (text) {
     for (let i = 0; i < text.innerText.length; i++) {
@@ -131,20 +133,21 @@ function toggleLanguage() {
     document.getElementById('language-btn').innerHTML = availableLocales[nextIndex];
 }
 
+if (theme_toggler) {
+    theme_toggler.addEventListener('click', function () {
+        theme_toggler.classList.add('transition-time');
+        document.body.classList.toggle('light_mode');
+        if (document.body.classList.contains('light_mode')) {
+            localStorage.setItem('website_theme', 'light_mode');
+        } else {
+            localStorage.setItem('website_theme', 'default');
+        }
+    });
 
-theme_toggler.addEventListener('click', function () {
-    theme_toggler.classList.add('transition-time');
-    document.body.classList.toggle('light_mode');
-    if (document.body.classList.contains('light_mode')) {
-        localStorage.setItem('website_theme', 'light_mode');
-    } else {
-        localStorage.setItem('website_theme', 'default');
-    }
-});
-
-theme_toggler.addEventListener("animationend", () => {
-    theme_toggler.classList.remove('transition-time');
-});
+    theme_toggler.addEventListener("animationend", () => {
+        theme_toggler.classList.remove('transition-time');
+    });
+}
 
 function retrieveTheme() {
     var theme = localStorage.getItem('website_theme');
@@ -156,7 +159,7 @@ function retrieveTheme() {
 
 function setCheckbox() {
     var theme = localStorage.getItem('website_theme');
-    if (theme != null) {
+    if (theme != null && theme_toggler) {
         if (document.body.classList.contains('light_mode')) {
             document.getElementById("theme-toggler").checked = true;
         } else {
@@ -173,11 +176,11 @@ function toggleDropdown() {
 
 // Close the dropdown if the user clicks outside of it
 window.onclick = function (event) {
+    var dropdownBox = document.getElementById("dropdown-box");
+    var dropdownButton = document.getElementById("dropdown-btn");
 
-    if (!event.target.matches('.dropdown-btn') && !event.target.matches('.bar')) {
+    if (!event.target.matches('.dropdown-btn') && !event.target.matches('.bar') && dropdownBox && dropdownButton) {
 
-        var dropdownBox = document.getElementById("dropdown-box");
-        var dropdownButton = document.getElementById("dropdown-btn");
 
         if (dropdownBox.classList.contains('show')) {
             dropdownBox.classList.remove('show');
