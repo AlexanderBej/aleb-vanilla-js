@@ -3,12 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-    <link rel="manifest" href="/site.webmanifest" />
-    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
+    <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png" />
+    <link rel="icon" type="image/x-icon" href="./favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png" />
+    <link rel="manifest" href="./site.webmanifest" />
+    <link rel="mask-icon" href="./safari-pinned-tab.svg" color="#5bbad5" />
     <meta name="msapplication-TileColor" content="#da532c" />
     <meta name="theme-color" content="#ffffff" />
     <title>Aleb</title>
@@ -101,85 +101,55 @@
             id="language-btn"
             onclick="toggleLanguage()"
           ></button>
-
-          <input type="checkbox" class="checkbox" id="theme-toggler">
+          <input type="checkbox" class="checkbox" id="theme-toggler" />
+          <div class="dropdown">
+            <div onclick="toggleDropdown()" id="dropdown-btn" class="dropdown-btn">
+              <div class="bar bar1"></div>
+              <div class="bar bar2"></div>
+              <div class="bar bar3"></div>
+            </div>
+            <div id="dropdown-box" class="dropdown-content">
+              <a href="index.html" data-i18n="home.links.home">home</a>
+              <a href="experience.html" data-i18n="home.links.experience">experience</a>
+              <a href="projects.html" data-i18n="home.links.projects">projects</a>
+              <a href="contact.html" data-i18n="home.links.contact">contact</a>
+            </div>
+          </div>
         </div>
       </header>
-      <div class="main">
-        <div class="intro">
-          <h1 id="text">hello</h1>
+      <div class="main main-inline">
+        <div class="page-title">
           <h1
-            data-aos="fade-left"
-            data-aos-delay="1000"
-            data-aos-duration="1000"
+            data-aos="fade-down"
+            class="vertical-lr"
+            data-i18n="home.links.about"
           >
-            <span data-i18n="home.name">my name is </span>
-            <span class="name">Alexandru Bej</span>,
+            about
           </h1>
-          <h1
-            data-aos="fade-left"
-            data-aos-delay="2000"
-            data-aos-duration="1000"
-          >
-            <span data-i18n="home.alias">but I'm also known as </span>
-            <span class="name">aleb</span>,
-          </h1>
-          <h2
-            data-aos="fade-left"
-            data-aos-delay="3000"
-            data-aos-duration="1000"
-            data-i18n="home.work"
-          >
-            and I'm a front-end developer, UX/UI designer and graphic designer
-          </h2>
         </div>
-        <div class="nav-tabs">
-          <a class="nav-link" href="about.html">
-            001.
-            <span
-              id="nav-about"
-              class="nav-title"
-              data-i18n="home.links.about"
-              data-content=""
-            ></span>
-          </a>
-
-          <a class="nav-link" href="experience.html">
-            002.
-            <span
-              id="nav-experience"
-              class="nav-title"
-              data-i18n="home.links.experience"
-              data-content=""
-            ></span>
-          </a>
-
-          <a class="nav-link" href="projects.html">
-            003.
-            <span
-              id="nav-projects"
-              class="nav-title"
-              data-i18n="home.links.projects"
-              data-content=""
-            ></span>
-          </a>
-
-          <a class="nav-link" href="contact.html">
-            004.
-            <span id="nav-contact" class="nav-title">contact</span>
-          </a>
+        <div class="about-container">
+          <div class="avatar">
+            <img
+              class="profile-img"
+              src="locales/images/Profile_img.png"
+              alt="Profile image"
+              width="400"
+            />
+          </div>
+          <div class="about-text spaced-text">
+            <p data-i18n="about">
+              I'm a passionate <strong>web developer</strong> and
+              <strong>UX/UI designer</strong> from Romania (currently living in
+              Spain), with a focus on creating modern and sleek user
+              experiences. My goal is to bring ideas to life through code,
+              ensuring a seamless and engaging online presence. With a keen eye
+              for design and a love for clean code, I strive to deliver web
+              solutions that not only meet but exceed expectations.
+            </p>
+          </div>
         </div>
       </div>
-
-      <footer>
-        <span class="copyright"
-          >&copy; 2024 Alexandru Bej.
-          <span data-i18n="home.copyright">All rights reserved.</span></span
-        >
-      </footer>
     </section>
-
-    <!-- <script src="./bundle.js"></script> -->
     <script src="./index.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
