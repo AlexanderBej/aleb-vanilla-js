@@ -515,10 +515,12 @@ ul {
 
 .project-theme {
   font-weight: 600;
+  pointer-events: none;
 }
 
 .project-date {
   font-size: 14px;
+  pointer-events: none;
 }
 
 .detail-item {

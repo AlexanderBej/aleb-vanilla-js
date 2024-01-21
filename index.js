@@ -1,191 +1,132 @@
-var text = document.getElementById('text');
-var newDom = '';
-var animationDelay = 200;
+// Constants
+const animationDelay = 200;
 const availableLocales = ['en', 'ro'];
-let theme_toggler = document.querySelector('#theme-toggler');
-
-// Default locale.
-const defaultLanguageIndex = 0;
 const defaultLanguage = 'en';
-let languageButtonLabel = 'en';
+const defaultLanguageIndex = 0;
 
-// Manually detect users' language, strip languages such as `en-GB` to just `en`.
-let language = (window.navigator.userLanguage || window.navigator.language).substr(0, 2);
+// DOM Elements
+const textElement = document.getElementById('text');
+const themeToggler = document.querySelector('#theme-toggler');
+const languageButton = document.getElementById('language-btn');
 
-// Set `pageLanguage` only if its available within our locales, otherwise default.
-let pageLanguage = defaultLanguage;
-if (availableLocales.includes(language)) {
-    pageLanguage = language;
+// Event Listeners
+document.addEventListener('DOMContentLoaded', initializePage);
+if (themeToggler) {
+    themeToggler.addEventListener('click', toggleTheme);
+    themeToggler.addEventListener('animationend', removeTransitionClass);
+}
+if (languageButton) {
+    languageButton.addEventListener('click', toggleLanguage);
 }
 
-document.addEventListener('DOMContentLoaded', function () {
+// Initialization function
+function initializePage() {
     retrieveTheme();
     setCheckbox();
     const preferredLanguage = getStorageLanguage();
-
-    // Apply the language to your website based on the preferredLanguage variable
-    // You can have a separate function to handle the actual language switching logic
     setLanguage(preferredLanguage);
-    const languageButton = document.getElementById('language-btn');
     if (languageButton) {
         languageButton.innerHTML = preferredLanguage;
     }
-});
+}
 
+// Language Functions
 function getStorageLanguage() {
-    return localStorage.getItem('preferredLanguage') || defaultLanguage; // Provide a default language if none is set
+    return localStorage.getItem('preferredLanguage') || defaultLanguage;
 }
 
 function setStorageLanguage(language) {
     localStorage.setItem('preferredLanguage', language);
 }
 
-
 async function setLanguage(lang) {
     setStorageLanguage(lang);
-    // Get all page elements to be translated.
     const elements = document.querySelectorAll('[data-i18n]');
-
-    // Specify the path to your JSON file
     const jsonFilePath = `./locales/i18n/${lang}.json`;
 
-    // Use the fetch function to make the request
-    fetch(jsonFilePath)
-        .then(response => {
-            // Check if the request was successful (status code 200)
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
+    try {
+        const response = await fetch(jsonFilePath);
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        const data = await response.json();
 
-            // Parse the response as JSON and return the result
-            return response.json();
-        })
-        .then(data => {
-            // On each element, found the translation from JSON file & update.
-            elements.forEach((element, index) => {
-                const key = element.getAttribute('data-i18n');
-                let text = key.split('.').reduce((obj, i) => (obj ? obj[i] : null), data);
-
-                // Regular text replacement for given locale.
-                element.innerHTML = text;
-            });
-
-            // Set <html> tag lang attribute.
-            const htmlElement = document.querySelector('html');
-            htmlElement.setAttribute('lang', pageLanguage);
-
-            pageLanguage = lang;
-
-            setDataContent(lang);
-        })
-        .catch(error => {
-            console.error('Error fetching the JSON file:', error);
+        elements.forEach(element => {
+            const key = element.getAttribute('data-i18n');
+            const text = key.split('.').reduce((obj, i) => (obj ? obj[i] : null), data);
+            element.innerHTML = text;
         });
 
+        const htmlElement = document.querySelector('html');
+        htmlElement.setAttribute('lang', lang);
+        pageLanguage = lang;
+
+        setDataContent(lang);
+    } catch (error) {
+        console.error('Error fetching the JSON file:', error);
+    }
 }
-
-
 
 function setDataContent(language) {
-    const elementIds = ['nav-about', 'nav-experience', 'nav-projects'];
+    const elementTranslations = {
+        'nav-about': { en: 'about', ro: 'despre' },
+        'nav-experience': { en: 'experience', ro: 'experiență' },
+        'nav-projects': { en: 'projects', ro: 'proiecte' }
+    };
 
-    elementIds.forEach((elementId) => {
+    Object.entries(elementTranslations).forEach(([elementId, translations]) => {
         const linkElement = document.getElementById(elementId);
-
         if (linkElement) {
-            switch (elementId) {
-                case 'nav-about':
-                    linkElement.setAttribute('data-content', language === 'en' ? 'about' : 'despre');
-                    break;
-                case 'nav-experience':
-                    linkElement.setAttribute('data-content', language === 'en' ? 'experience' : 'experiență');
-                    break;
-                case 'nav-projects':
-                    linkElement.setAttribute('data-content', language === 'en' ? 'projects' : 'proiecte');
-                    break;
-            }
+            linkElement.setAttribute('data-content', translations[language]);
         }
     });
 }
 
-if (text) {
-    for (let i = 0; i < text.innerText.length; i++) {
-        newDom += '<span class="char">' + (text.innerText[i] == ' ' ? '&nbsp;' : text.innerText[i]) + '</span>';
-    }
-
-    text.innerHTML = newDom;
-    var length = text.children.length;
-
-    for (let i = 0; i < length; i++) {
-        text.children[i].style['animation-delay'] = animationDelay * i + 'ms';
-    }
+// Theme Functions
+function toggleTheme() {
+    themeToggler.classList.add('transition-time');
+    document.body.classList.toggle('light_mode');
+    const theme = document.body.classList.contains('light_mode') ? 'light_mode' : 'default';
+    localStorage.setItem('website_theme', theme);
 }
 
-
-function toggleLanguage() {
-    const currentIndex = availableLocales.indexOf(pageLanguage);
-
-    // Calculate the index of the next locale
-    const nextIndex = (currentIndex + 1) % availableLocales.length;
-
-    // Set the new locale as the specified pageLanguage
-    setLanguage(availableLocales[nextIndex]);
-    document.getElementById('language-btn').innerHTML = availableLocales[nextIndex];
-}
-
-if (theme_toggler) {
-    theme_toggler.addEventListener('click', function () {
-        theme_toggler.classList.add('transition-time');
-        document.body.classList.toggle('light_mode');
-        if (document.body.classList.contains('light_mode')) {
-            localStorage.setItem('website_theme', 'light_mode');
-        } else {
-            localStorage.setItem('website_theme', 'default');
-        }
-    });
-
-    theme_toggler.addEventListener("animationend", () => {
-        theme_toggler.classList.remove('transition-time');
-    });
+function removeTransitionClass() {
+    themeToggler.classList.remove('transition-time');
 }
 
 function retrieveTheme() {
-    var theme = localStorage.getItem('website_theme');
-    if (theme != null) {
+    const theme = localStorage.getItem('website_theme');
+    if (theme) {
         document.body.classList.remove('default', 'light_mode');
         document.body.classList.add(theme);
     }
 }
 
 function setCheckbox() {
-    var theme = localStorage.getItem('website_theme');
-    if (theme != null && theme_toggler) {
-        if (document.body.classList.contains('light_mode')) {
-            document.getElementById("theme-toggler").checked = true;
-        } else {
-            document.getElementById("theme-toggler").checked = false;
-        }
+    const theme = localStorage.getItem('website_theme');
+    if (theme && themeToggler) {
+        document.getElementById("theme-toggler").checked = theme === 'light_mode';
     }
 }
 
-/* toggleDropdown toggles between adding and removing the show class, which is used to hide and show the dropdown content */
+// Dropdown Functions
 function toggleDropdown() {
-    document.getElementById("dropdown-box").classList.toggle("show");
-    document.getElementById("dropdown-btn").classList.toggle("change");
+    const dropdownBox = document.getElementById("dropdown-box");
+    const dropdownButton = document.getElementById("dropdown-btn");
+    if (dropdownBox && dropdownButton) {
+        dropdownBox.classList.toggle("show");
+        dropdownButton.classList.toggle("change");
+    }
 }
 
 // Close the dropdown if the user clicks outside of it
 window.onclick = function (event) {
-    var dropdownBox = document.getElementById("dropdown-box");
-    var dropdownButton = document.getElementById("dropdown-btn");
-
-    if (!event.target.matches('.dropdown-btn') && !event.target.matches('.bar') && dropdownBox && dropdownButton) {
-
-
+    const dropdownBox = document.getElementById("dropdown-box");
+    const dropdownButton = document.getElementById("dropdown-btn");
+    if (dropdownBox && dropdownButton && !event.target.matches('.dropdown-btn') && !event.target.matches('.bar')) {
         if (dropdownBox.classList.contains('show')) {
             dropdownBox.classList.remove('show');
         }
-
         if (dropdownButton.classList.contains('change')) {
             dropdownButton.classList.remove('change');
         }
