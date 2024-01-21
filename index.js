@@ -30,6 +30,17 @@ function initializePage() {
     }
 }
 
+function toggleLanguage() {
+    const currentIndex = availableLocales.indexOf(pageLanguage);
+
+    // Calculate the index of the next locale
+    const nextIndex = (currentIndex + 1) % availableLocales.length;
+
+    // Set the new locale as the specified pageLanguage
+    setLanguage(availableLocales[nextIndex]);
+    document.getElementById('language-btn').innerHTML = availableLocales[nextIndex];
+}
+
 // Language Functions
 function getStorageLanguage() {
     return localStorage.getItem('preferredLanguage') || defaultLanguage;
